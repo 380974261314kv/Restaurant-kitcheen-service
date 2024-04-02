@@ -29,6 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Application definition
 
@@ -39,11 +43,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "restaurant",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -122,6 +130,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = (BASE_DIR / "static",)
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 # Default primary key field type
