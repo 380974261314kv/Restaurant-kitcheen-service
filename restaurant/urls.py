@@ -1,11 +1,10 @@
 from django.urls import path
-from restaurant.views import (
-    index,
-)
+from restaurant import views
 
 
 app_name = "restaurant"
 
 urlpatterns = [
-    path("", index, name="index"),
+    path("", views.index, name="index"),
+    path("dish_types/", views.DishTypeListView.as_view(), name="dish-type-list"),
 ]
