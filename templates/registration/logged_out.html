@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="make-dish mt-5">
+  <h3>Logged out!</h3>
+  <p>Click here to login again</p>
+  <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+  <p><b>or</b></p>
+  <p>click here to go home page</p>
+  <a href="{% url 'restaurant:index' %}" class="btn btn-primary">Home</a>
+</div>
+{% endblock %}
