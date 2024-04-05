@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="make-dish mt-5">
+  <h5>Dish type: {{ dish_type.name }}</h5><br>
+  <h5>This dish type consists of such dishes:</h5>
+  {% for dish in dish_type.dish_set.all %}
+  <h5><a href="#">
+    {{ dish.name }}
+  </a>
+  </h5><br>
+  {% empty %}
+  <h5>There are no dishes</h5><br>
+  {% endfor %}
+  <a href="#" class="btn btn-primary">Update</a>
+  <a href="#" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}

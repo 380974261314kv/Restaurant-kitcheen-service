@@ -1,10 +1,14 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
 class DishType(models.Model):
     name = models.CharField(max_length=255, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("restaurant:dish-type-detail", args=[self.pk])
 
     def __str__(self):
         return self.name
