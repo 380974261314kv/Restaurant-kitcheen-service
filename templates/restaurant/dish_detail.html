@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load price_formatters %}
+<div class="make-dish mt-5">
+  <h5><span class="more-space">
+      <strong> Dish:</strong>
+      {{ dish.name }}
+    </span>
+  </h5>
+
+  <h5>Dish type:</h5>
+  <h6>
+    <a href="{% url 'restaurant:dish-type-detail' dish.dish_type.id %}">{{ dish.dish_type }}</a>
+  </h6>
+  <h5>Price: {{ dish.price | currency_euro }}</h5>
+  <h5>Description</h5>
+  <div class="contain-text">
+    <p>{{ dish.description }}</p>
+
+  </div>
+
+
+    <a href="#" class="btn btn-primary">Update</a>
+    <a href="#" class="btn btn-danger">Delete</a>
+
+    {% endblock %}

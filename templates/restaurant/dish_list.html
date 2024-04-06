@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>All Dishes</h1>
-{% load price_formaters %}
+{% load price_formatters %}
 {% if dish_list %}
 <table class="table table-bordered table-hover shadow-lg bg-white mt-5">
   <thead>
@@ -20,7 +20,11 @@
   {% for dish in dish_list %}
   <tr>
     <td>{{ dish.id }}</td>
-    <td>{{ dish.name }}</td>
+    <td>
+      <a href="{{ dish.get_absolute_url }}">
+        {{ dish.name }}
+      </a>
+      </td>
     <td>{{ dish.price|currency_euro }}</td>
     <td>{{ dish.dish_type.name}}</td>
     <td></td>

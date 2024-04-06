@@ -4,7 +4,7 @@
   <h5>Dish type: {{ dish_type.name }}</h5><br>
   <h5>This dish type consists of such dishes:</h5>
   {% for dish in dish_type.dish_set.all %}
-  <h5><a href="#">
+  <h5><a href="{{ dish.get_absolute_url }}">
     {{ dish.name }}
   </a>
   </h5><br>
