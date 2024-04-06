@@ -18,9 +18,19 @@
     <p>{{ dish.description }}</p>
 
   </div>
+  <h5>
+    <span>Cooks preparing this dish</span>
+  </h5>
 
+  {% for cook in dish.cooks.all %}
+  <h5><a href="{% url 'restaurant:cook-detail' cook.id %}">{{ cook.username }}</a></h5>
+  {% empty %}
+  <h5>There are no cooks</h5>
 
-    <a href="#" class="btn btn-primary">Update</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+  {% endfor %}
 
-    {% endblock %}
+  <br>
+  <a href="#" class="btn btn-primary">Update</a>
+  <a href="#" class="btn btn-danger">Delete</a>
+
+  {% endblock %}

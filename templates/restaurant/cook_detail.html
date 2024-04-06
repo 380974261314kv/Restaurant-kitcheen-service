@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="make-dish">username: {{ cook.username }}</h2>
+<div class="border-radius-xl blur-section px-4 pt-3 pb-1 my-3">
+  <p class="text-dark">
+    <strong>Email address:</strong> {{ cook.email }}
+  </p>
+  <p class="text-dark">
+    <strong>First name:</strong> {{ cook.first_name }}
+  </p>
+  <p class="text-dark">
+    <strong>Last name:</strong> {{ cook.last_name }}
+  </p>
+  <p class="text-dark">
+    <strong>Years of experience:</strong> {{ cook.years_of_experience }}
+  </p>
+</div>
+
+<div class="border-radius-xl blur-section px-4 pt-3 pb-1">
+  <h4>Dishes that the cook prepares</h4>
+  <ul>
+    {% for dish in cook.dishes.all %}
+    <li>
+      <a class="text-gradient text-primary" href="{% url 'restaurant:dish-detail' dish.id %}">{{ dish.name }}</a>
+    </li>
+    {% empty %}
+    <li>There are no dishes here.</li>
+    {% endfor %}
+  </ul>
+</div><br/>
+<div class="make-dish">
+  <a href="#" class="btn btn-primary btn-lg">Update profile</a><br/><br/>
+  <a href="#" class="btn btn-danger btn-lg">Delete account</a>
+</div>
+{% endblock %}
