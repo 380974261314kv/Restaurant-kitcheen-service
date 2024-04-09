@@ -28,8 +28,16 @@
     </td>
     <td>{{ dish.price|currency_euro }}</td>
     <td>{{ dish.dish_type.name}}</td>
-    <td></td>
-    <td></td>
+    <td>
+      {% for cook in dish.cooks.all %}
+      {% if cook.first_name %}
+      {{ cook.first_name }} {{ cook.last_name }}
+      <br/>
+      {% else %}
+      {{ cook.username }}
+      {% endif %}
+      {% endfor %}
+    </td>
     <td></td>
   </tr>
   {% endfor %}
@@ -38,4 +46,8 @@
 {% else %}
 <p>There are no dishes</p>
 {% endif %}
+<div class="make-dish">
+  <p>Create a new dish</p>
+  <a href="{% url 'restaurant:dish-create' %}" class="btn btn-success btn-lg">Create</a>
+</div>
 {% endblock %}
