@@ -37,4 +37,8 @@
 {% else %}
 <p>There are no cooks</p>
 {% endif %}
+<div class="make-dish">
+  <p><b>Create a new profile</b></p>
+  <a href="{% url 'restaurant:cook-create' %}" class="btn btn-success btn-lg">Create</a><br/>
+</div>
 {% endblock %}
