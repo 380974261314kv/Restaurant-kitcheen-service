@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.views import generic
+from django.urls import reverse_lazy
 
 from restaurant.models import Dish, DishType, Cook
 from restaurant.forms import (
@@ -38,7 +39,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     template_name = "restaurant/dish_type_list.html"
     context_object_name = "dish_type_list"
-    paginate_by = 2
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(DishTypeListView, self).get_context_data(**kwargs)
@@ -62,6 +63,13 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = DishType
     template_name = "restaurant/dish_type_detail.html"
     context_object_name = "dish_type"
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    template_name = "restaurant/dish_type_form.html"
+    success_url = reverse_lazy("restaurant:dish-type-list")
 
 
 class DishListView(LoginRequiredMixin, generic.ListView):

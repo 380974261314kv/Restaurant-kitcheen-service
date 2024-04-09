@@ -113,6 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "restaurant.Cook"
 
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
