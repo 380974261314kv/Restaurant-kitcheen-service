@@ -22,8 +22,12 @@
         {{ dish_type.name }}
       </a>
     </td>
-    <td></td>
-    <td></td>
+    <td>
+      <a href="{% url 'restaurant:dish-type-update' dish_type.id %}">Update</a>
+    </td>
+    <td>
+      <a href="{% url 'restaurant:dish-type-delete' dish_type.id %}">Delete</a>
+    </td>
   </tr>
   {% endfor %}
   </tbody>
