@@ -7,7 +7,6 @@
       {{ dish.name }}
     </span>
   </h5>
-
   <h5>Dish type:</h5>
   <h6>
     <a href="{% url 'restaurant:dish-type-detail' dish.dish_type.id %}">{{ dish.dish_type }}</a>
@@ -30,7 +29,8 @@
   {% endfor %}
 
   <br>
-  <a href="#" class="btn btn-primary">Update</a>
-  <a href="#" class="btn btn-danger">Delete</a>
+  <a href="{% url 'restaurant:dish-update' dish.id %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'restaurant:dish-delete' dish.id %}" class="btn btn-danger">Delete</a>
+</div>
 
   {% endblock %}

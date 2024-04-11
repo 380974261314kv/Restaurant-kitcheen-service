@@ -38,7 +38,12 @@
       {% endif %}
       {% endfor %}
     </td>
-    <td></td>
+    <td>
+      <a href="{% url 'restaurant:dish-update' dish.id %}">Update</a>
+    </td>
+     <td>
+      <a href="{% url 'restaurant:dish-delete' dish.id %}">Delete</a>
+    </td>
   </tr>
   {% endfor %}
   </tbody>
