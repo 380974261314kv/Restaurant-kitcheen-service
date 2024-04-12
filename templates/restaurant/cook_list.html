@@ -28,8 +28,12 @@
     <td>{{ cook.username}}</td>
     <td>{{ cook.email }}</td>
     <td>{{ cook.years_of_experience }}</td>
-    <td></td>
-    <td></td>
+    <td>
+      <a href="{% url 'restaurant:cook-update' cook.id %}">Update</a>
+    </td>
+    <td>
+      <a href="{% url 'restaurant:cook-delete' cook.id %}">Delete</a>
+    </td>
   </tr>
   {% endfor %}
   </tbody>

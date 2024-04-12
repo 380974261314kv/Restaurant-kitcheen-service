@@ -30,7 +30,7 @@
   </ul>
 </div><br/>
 <div class="make-dish">
-  <a href="#" class="btn btn-primary btn-lg">Update profile</a><br/><br/>
-  <a href="#" class="btn btn-danger btn-lg">Delete account</a>
+  <a href="{% url 'restaurant:cook-update' cook.id %}" class="btn btn-primary btn-lg">Update profile</a><br/><br/>
+  <a href="{% url 'restaurant:cook-delete' cook.id %}" class="btn btn-danger btn-lg">Delete account</a>
 </div>
 {% endblock %}

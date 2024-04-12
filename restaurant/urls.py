@@ -19,4 +19,6 @@ urlpatterns = [
     path("cooks/", views.CookListView.as_view(), name="cook-list"),
     path("cooks/<int:pk>/", views.CookDetailView.as_view(), name="cook-detail"),
     path("cooks/create/", views.CookCreateView.as_view(), name="cook-create"),
+    path("cooks/update/<int:pk>/", views.CookUpdateView.as_view(), name="cook-update"),
+    path("cooks/dalete/<int:pk>/", views.CookDeleteView.as_view(), name="cook-delete"),
 ]
