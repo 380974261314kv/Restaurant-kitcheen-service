@@ -6,6 +6,14 @@
       <strong> Dish:</strong>
       {{ dish.name }}
     </span>
+    <span>
+        {% if dish in user.dishes.all %}
+          <a href="{% url 'restaurant:toggle-dish-assign' dish.id %}"
+             class="btn btn-danger">Delete me from this dish</a>
+        {% else %}
+          <a href="{% url 'restaurant:toggle-dish-assign' dish.id %}" class="btn btn-success">Assign me to this dish</a>
+        {% endif %}
+      </span>
   </h5>
   <h5>Dish type:</h5>
   <h6>
@@ -33,4 +41,4 @@
   <a href="{% url 'restaurant:dish-delete' dish.id %}" class="btn btn-danger">Delete</a>
 </div>
 
-  {% endblock %}
+{% endblock %}

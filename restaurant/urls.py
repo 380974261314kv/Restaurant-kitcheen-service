@@ -21,4 +21,6 @@ urlpatterns = [
     path("cooks/create/", views.CookCreateView.as_view(), name="cook-create"),
     path("cooks/update/<int:pk>/", views.CookUpdateView.as_view(), name="cook-update"),
     path("cooks/dalete/<int:pk>/", views.CookDeleteView.as_view(), name="cook-delete"),
+    path("dishes/toggle_assign/<int:pk>/", views.toggle_assign_to_dish, name="toggle-dish-assign"),
+
 ]
